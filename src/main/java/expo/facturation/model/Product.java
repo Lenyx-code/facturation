@@ -1,4 +1,4 @@
-package expo.facturation;
+package expo.facturation.model;
 
 public class Product {
     private int id;
