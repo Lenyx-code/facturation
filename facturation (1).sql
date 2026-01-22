@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 21 jan. 2026 à 21:19
+-- Généré le : jeu. 22 jan. 2026 à 16:29
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -30,9 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `clients` (
   `id` int(11) NOT NULL,
   `nom` varchar(30) NOT NULL,
-  `telphone` varchar(15) NOT NULL,
-  `adresse` varchar(30) NOT NULL
+  `adresse` varchar(30) NOT NULL,
+  `telephone` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `clients`
+--
+
+INSERT INTO `clients` (`id`, `nom`, `adresse`, `telephone`) VALUES
+(1, 'TALA', 'MBALLA 2', '12345');
 
 -- --------------------------------------------------------
 
@@ -50,6 +57,13 @@ CREATE TABLE `factures` (
   `date_fac` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `factures`
+--
+
+INSERT INTO `factures` (`id`, `num_fac`, `id_cli`, `montant_payer`, `montant_total`, `reste_a_payer`, `date_fac`) VALUES
+(1, '230023', 1, 4000, 3600, -400, '2026-01-22 14:47:01');
+
 -- --------------------------------------------------------
 
 --
@@ -63,6 +77,14 @@ CREATE TABLE `produits` (
   `prix` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `produits`
+--
+
+INSERT INTO `produits` (`id`, `nom`, `qte`, `prix`) VALUES
+(1, 'Huille mayor 1L', 20, 1800),
+(3, 'Huile mayor 5l', 15, 5500);
+
 -- --------------------------------------------------------
 
 --
@@ -73,8 +95,16 @@ CREATE TABLE `prod_factures` (
   `id` int(11) NOT NULL,
   `id_fac` int(11) NOT NULL,
   `id_prod` int(11) NOT NULL,
+  `qte` int(11) NOT NULL,
   `sell_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `prod_factures`
+--
+
+INSERT INTO `prod_factures` (`id`, `id_fac`, `id_prod`, `qte`, `sell_at`) VALUES
+(1, 1, 1, 2, '2026-01-22 14:47:01');
 
 --
 -- Index pour les tables déchargées
@@ -116,25 +146,25 @@ ALTER TABLE `prod_factures`
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `factures`
 --
 ALTER TABLE `factures`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `produits`
 --
 ALTER TABLE `produits`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `prod_factures`
 --
 ALTER TABLE `prod_factures`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées
