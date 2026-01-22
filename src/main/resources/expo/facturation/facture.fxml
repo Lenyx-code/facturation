@@ -1,1 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="expo.facturation.controller.FactureController">
+
+    <top>
+        <VBox spacing="10">
+            <Label text="Créer une facture" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+            <GridPane hgap="10" vgap="10">
+                <Label text="N° Facture :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtNumeroFacture" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Client :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="choiceClient" promptText="Sélectionner un client"
+                          GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            </GridPane>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="10">
+            <HBox spacing="10">
+                <ComboBox fx:id="choiceProduit" promptText="Produit"/>
+                <TextField fx:id="txtQte" promptText="Quantité" prefWidth="80"/>
+                <Button text="Ajouter" onAction="#ajouterProduit"/>
+            </HBox>
+            <TableView fx:id="tableProduits" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="colProduit" text="Produit" prefWidth="200"/>
+                    <TableColumn fx:id="colPrix" text="Prix" prefWidth="100"/>
+                    <TableColumn fx:id="colQte" text="Qté" prefWidth="80"/>
+                    <TableColumn fx:id="colTotal" text="Total" prefWidth="120"/>
+                    <TableColumn fx:id="colAction" text="Action" prefWidth="100"/>
+                </columns>
+            </TableView>
+              <GridPane hgap="10" vgap="10">
+            <Label text="Montant total :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtTotal" editable="false"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Montant payé :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtPaye"
+                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Reste à payer :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtReste" editable="false"
+                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        </GridPane>
+        </VBox>
+    </center>
+    <bottom>
+      
+      <HBox spacing="10">
+                <Button text="Retour" onAction="#switchToClient"/>
+                <Button text="Enregistrer la facture" onAction="#enregistrerFacture"/>
+            </HBox>
+    </bottom>
+
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+    
+</BorderPane>

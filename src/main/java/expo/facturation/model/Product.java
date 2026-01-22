@@ -44,4 +44,9 @@ public class Product {
     public void setPrix(float prix){
         this.prix = prix;
     }
+
+    @Override
+    public String toString() {
+        return nom;
+    }
 }
