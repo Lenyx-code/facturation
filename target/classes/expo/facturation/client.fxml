@@ -1,16 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="expo.facturation.controller.ClientController">
-    <children>
-        <Label text="Page client" />
-        <Button fx:id="secondaryButton" text="Aller à la page produit" onAction="#switchToProduct" />
-    </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-</VBox>
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="expo.facturation.controller.ClientController">
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Gestion des clients" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+            <GridPane hgap="10" vgap="10">
+
+                <Label text="Nom"/>
+                <TextField fx:id="nom" GridPane.columnIndex="1"/>
+
+                <Label text="Adresse" GridPane.rowIndex="1"/>
+                <TextField fx:id="adresse" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Téléphone" GridPane.rowIndex="2"/>
+                <TextField fx:id="telephone" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            </GridPane>
+            <HBox spacing="10">
+                <Button text="Ajouter"
+                        onAction="#saveClient"/>
+
+                <Button text="Vider"
+                        onAction="#clearFormField"/>
+
+                <Button text="Valider modification"
+                        fx:id="validEdit"
+                        onAction="#validEditClient"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="tableClient" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                <TableColumn fx:id="colNom" text="Nom" prefWidth="180"/>
+                <TableColumn fx:id="colAdresse" text="Adresse" prefWidth="250"/>
+                <TableColumn fx:id="colTelephone" text="Téléphone" prefWidth="150"/>
+                <TableColumn fx:id="colAction" text="Action" prefWidth="160"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>
