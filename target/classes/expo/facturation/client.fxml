@@ -55,6 +55,7 @@
       <HBox spacing="10">
                 <Button text="Produits" onAction="#switchToProduct"/>
                 <Button text="Creer une facture" onAction="#switchToInvoice"/>
+                <Button text="Liste Facture" onAction="#switchToInvoiceList" />
             </HBox>
    </bottom>
 </BorderPane>

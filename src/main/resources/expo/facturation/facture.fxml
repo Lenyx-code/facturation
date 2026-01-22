@@ -58,6 +58,7 @@
       <HBox spacing="10">
                 <Button text="Retour" onAction="#switchToClient"/>
                 <Button text="Enregistrer la facture" onAction="#enregistrerFacture"/>
+                <Button text="Liste Facture" onAction="#switchToInvoiceList" />
             </HBox>
     </bottom>
 

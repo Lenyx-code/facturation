@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="expo.facturation.controller.ListeFactureController">
+
+
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+
+            <Label text="Liste des factures" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tableProduit">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" />
+                <TableColumn fx:id="colNum" text="Numéro de la facture" />
+                <TableColumn fx:id="colClient" text="Client" />
+                <TableColumn fx:id="colMontantTotal" text="Montant total" />
+                <TableColumn fx:id="colMontantPayer" text="ontant payer" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <Button text="Retour" onAction="#switchToClient" />
+        <Button text="Nouvelle facture" onAction="#switchToInvoice" />
+    </bottom>
+
+      <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+</BorderPane>

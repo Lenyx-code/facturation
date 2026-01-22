@@ -17,6 +17,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
@@ -57,6 +58,8 @@ public class FactureController {
     @FXML
     private TableColumn<LigneFacture, Void> colAction;
 
+    
+
     @FXML
     public void initialize() {
 
@@ -70,6 +73,9 @@ public class FactureController {
         colQte.setCellValueFactory(data -> new javafx.beans.property.SimpleObjectProperty<>(data.getValue().getQte()));
         colTotal.setCellValueFactory(
                 data -> new javafx.beans.property.SimpleObjectProperty<>(data.getValue().getTotal()));
+
+        
+
         Callback<TableColumn<LigneFacture, Void>, TableCell<LigneFacture, Void>> cellFactory = params -> new TableCell<>() {
             private final Button btnSupr = new Button("Supprimer");
             private final HBox box = new HBox(5, btnSupr);
@@ -167,5 +173,13 @@ public class FactureController {
     @FXML
     private void switchToClient() throws IOException {
         App.setRoot("client");
+    }
+        @FXML
+    private void switchToInvoiceList() throws IOException {
+        App.setRoot("listefacture");
+    }
+    @FXML
+    private void switchToInvoice() throws IOException {
+        App.setRoot("facture");
     }
 }

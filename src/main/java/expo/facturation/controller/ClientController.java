@@ -59,6 +59,10 @@ public class ClientController {
     private void switchToInvoice() throws IOException {
         App.setRoot("facture");
     }
+       @FXML
+    private void switchToInvoiceList() throws IOException {
+        App.setRoot("listefacture");
+    }
   
     @FXML
     public void initialize() {
